@@ -23,13 +23,14 @@ Chargement des Intentions: Les intentions sont chargées à partir d'un fichier 
 
 Routes Flask:
 
-/: Affiche la page principale (chatbot_static.html).
-/chat (POST): Reçoit les messages de l'utilisateur, génère des réponses via GPT-3, les stocke dans la base de données, et renvoie la réponse au navigateur.
+"/" : Affiche la page principale (chatbot_static.html).
+"/chat" (POST): Reçoit les messages de l'utilisateur, génère des réponses via GPT-3, les stocke dans la base de données, et renvoie la réponse au navigateur.
+
 Fonctions principales:
 
-get_gpt3_response(question): Utilise GPT-3 pour générer des réponses en fonction des exemples d'intentions.
-detect_intent(question): Détecte l'intention de l'utilisateur en comparant les exemples d'intentions.
-save_conversation(question, response): Enregistre la conversation dans la base de données.
+"get_gpt3_response(question)" : Utilise GPT-3 pour générer des réponses en fonction des exemples d'intentions.
+"detect_intent(question)" : Détecte l'intention de l'utilisateur en comparant les exemples d'intentions.
+"save_conversation(question, response)" : Enregistre la conversation dans la base de données.
 
 ## Exécution du Projet
 1. Installez les dépendances avec pip install Flask openai mysql-connector-python pandas.
