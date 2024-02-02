@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CHATBOT-PROJECT
 =======
 # Chatbot avec Flask, GPT-3, MySQL, et HTML
