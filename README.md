@@ -21,13 +21,13 @@ Configuration MySQL: Spécifiez les détails de connexion à votre base de donn�
 
 Chargement des Intentions: Les intentions sont chargées à partir d'un fichier YAML (intent.yaml).
 
-### Routes Flask:
+#### Routes Flask:
 
 "/" : Affiche la page principale (chatbot_static.html).
 
 "/chat" (POST): Reçoit les messages de l'utilisateur, génère des réponses via GPT-3, les stocke dans la base de données, et renvoie la réponse au navigateur.
 
-### Fonctions principales:
+#### Fonctions principales:
 
 "get_gpt3_response(question)" : Utilise GPT-3 pour générer des réponses en fonction des exemples d'intentions.
 
