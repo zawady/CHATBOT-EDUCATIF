@@ -30,6 +30,7 @@ Fonctions principales:
 
 "get_gpt3_response(question)" : Utilise GPT-3 pour générer des réponses en fonction des exemples d'intentions.
 "detect_intent(question)" : Détecte l'intention de l'utilisateur en comparant les exemples d'intentions.
+
 "save_conversation(question, response)" : Enregistre la conversation dans la base de données.
 
 ## Exécution du Projet
