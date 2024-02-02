@@ -8,11 +8,14 @@ Ce projet est un chatbot basé sur Flask, qui utilise l'API GPT-3 pour générer
 
 ## Configuration
 API OpenAI
-Assurez-vous de remplacer la clé d'API OpenAI par votre propre clé dans le fichier principal app.py : openai.api_key = "Votre_clé_API_OpenAI"
-Steps
+Assurez-vous de remplacer la clé d'API OpenAI par votre propre clé dans le fichier principal app.py : 
+
+openai.api_key = "Votre_clé_API_OpenAI"
+
 
 ## Base de données MySQL
 Modifiez les détails de connexion à la base de données dans le fichier principal app.py : 
+
 db_connection = mysql.connector.connect(
     host="localhost",
     user="your_user",
