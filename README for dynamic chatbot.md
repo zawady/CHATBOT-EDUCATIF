@@ -32,13 +32,13 @@ Le script database_setup.py crée une base de données chatbot avec les tables p
 Le script insert_data.py insère des données depuis un fichier CSV dans la table cours. Modifiez le chemin du fichier CSV selon vos besoins.
 
 ## Interface utilisateur HTML
-Le fichier templates/index.html contient l'interface utilisateur du chatbot.
+Le fichier templates/chatbot_dynamic.html contient l'interface utilisateur du chatbot.
 
 ## Exécution du projet
 Installez les dépendances avec pip install Flask pandas mysql-connector-python.
 Exécutez python database_setup.py pour créer la base de données et les tables.
 Exécutez python insert_data.py pour insérer des données depuis un fichier CSV.
-Exécutez python app.py pour démarrer le serveur Flask.
+Exécutez python app_dynamic.py pour démarrer le serveur Flask.
 Accédez à l'application dans votre navigateur à l'adresse http://127.0.0.1:5000/.
 
 ## Utilisation du chatbot
