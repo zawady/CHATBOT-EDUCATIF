@@ -1,0 +1,31 @@
+- regex: Durée
+  examples: |
+    - Quelle est la durée estimée de cette formation?
+    - Combien de temps faut-il pour terminer le cours?
+
+- regex: Prérequis
+  examples: |
+    - Quels sont les prérequis pour s'inscrire à ce cours?
+    - Ai-je besoin de connaissances préalables en programmation?
+
+- regex: Certificat
+  examples: |
+    - Quelles sont les conditions pour obtenir un certificat de réussite à la fin de la formation?
+    - Le certificat est-il reconnu sur le marché du travail?
+    - Comment puis-je accéder à mon certificat une fois que j'ai terminé la formation?
+
+- regex: Forum_de_discussion
+  examples: |
+    - Y a-t-il un forum de discussion dédié à cette formation pour poser des questions?
+
+- regex: Tutorat_en_direct
+  examples: |
+    - Existe-t-il des sessions de tutorat en direct ou des ressources d'aide supplémentaires?
+
+- regex: Instructeurs
+  examples: |
+    - Qui sont les instructeurs de cette formation?
+    - Quelle est leur expérience dans le domaine de l'accessibilité web, HTML et CSS?
+    - Comment puis-je contacter les instructeurs en cas de questions spécifiques?
+
+# Ajoutez des exemples pour d'autres entités
