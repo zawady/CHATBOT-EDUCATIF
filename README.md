@@ -3,11 +3,11 @@
 # Chatbot avec Flask, GPT-3, MySQL, et HTML
 
 ## Description du projet
-Ce projet est un chatbot basé sur Flask, qui utilise l'API GPT-3 pour générer des réponses en fonction des intentions détectées. Les données de conversation sont stockées dans une base de données MySQL. L'interface utilisateur est créée en HTML avec des fonctionnalités de chat en temps réel.
+Ce projet est un chatbot éducatif d'une formation en HTML/CSS, basé sur Flask, qui utilise l'API GPT-3 pour générer des réponses en fonction des intentions détectées. Les données de conversation sont stockées dans une base de données MySQL. L'interface utilisateur est créée en HTML avec des fonctionnalités de chat en temps réel.
 
 ## Configuration
 API OpenAI
-Assurez-vous de remplacer la clé d'API OpenAI par votre propre clé dans le fichier principal app.py : 
+Assurez-vous de remplacer la clé d'API OpenAI par votre propre clé dans le fichier principal app.py ou dans config.py selon vos préferences en matière de sécurité: 
 
 openai.api_key = "Votre_clé_API_OpenAI"
 
