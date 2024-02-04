@@ -1,31 +1,69 @@
-- regex: Durée
+- regex: "Contenu du cours|objectif|Compètences visées"
   examples: |
-    - Quelle est la durée estimée de cette formation?
-    - Combien de temps faut-il pour terminer le cours?
+    - Que vais-je apprendre dans ce cours ?
+    - Quels sujets sont couverts par ce cours ?
 
-- regex: Prérequis
+- regex: "Titre du cours|sujet|thème"
   examples: |
-    - Quels sont les prérequis pour s'inscrire à ce cours?
-    - Ai-je besoin de connaissances préalables en programmation?
+    - Quel est le titre complet de ce cours ?
+    - Comment s'appelle le cours sur lequel je veux des informations ?
 
-- regex: Certificat
+- regex: "Vidéo|tutoriel|leçons"
   examples: |
-    - Quelles sont les conditions pour obtenir un certificat de réussite à la fin de la formation?
-    - Le certificat est-il reconnu sur le marché du travail?
-    - Comment puis-je accéder à mon certificat une fois que j'ai terminé la formation?
+    - Combien de vidéos le cours contient-il ?
+    - Où puis-je trouver les vidéos de cours ?
+    - Où puis-je trouver les vidéos du cours?
+    - Les vidéos sont-elles accessibles à tout moment?
 
-- regex: Forum_de_discussion
+- regex: "Durée|temps|long"
   examples: |
-    - Y a-t-il un forum de discussion dédié à cette formation pour poser des questions?
+    - Combien de temps faut-il pour compléter le cours ?
+    - Quelle est la durée totale des vidéos du cours ?
+    - Combien de temps dure le cours?
+    - Quelle est la durée totale de la formation?
 
-- regex: Tutorat_en_direct
+- regex: Description_du_professeur
   examples: |
-    - Existe-t-il des sessions de tutorat en direct ou des ressources d'aide supplémentaires?
+    - Qui enseigne ce cours ?
+    - Quelles sont les qualifications de l'instructeur ?
+    - Donner moi plus de détails sur les instructeurs ?
 
-- regex: Instructeurs
+- regex: Accès au cours
   examples: |
-    - Qui sont les instructeurs de cette formation?
-    - Quelle est leur expérience dans le domaine de l'accessibilité web, HTML et CSS?
-    - Comment puis-je contacter les instructeurs en cas de questions spécifiques?
+    - Comment puis-je accéder au cours ?
+    - Le cours est-il disponible en ligne gratuitement ?
 
-# Ajoutez des exemples pour d'autres entités
+- regex: "certificat|attestation|diplôme"
+  examples: |
+    - Comment obtenir un certificat après avoir terminé le cours ?
+    - Le cours offre-t-il un certificat de réussite ?
+
+- regex: "Professeur|enseignant|formateur|profs"
+  examples: |
+    - Comment puis-je obtenir de l'aide si j'ai des questions pendant le cours ?
+    - Existe-t-il un support pour les étudiants ?
+    - Qui sont les profs ?
+    - Qui enseigne le cours?
+    - Puis-je connaître le profil des formateurs?
+
+- regex: Mise à jour du cours
+  examples: |
+    - Le contenu du cours est-il régulièrement mis à jour ?
+    - Comment puis-je savoir si le cours a été mis à jour récemment ?
+
+- regex: Avis_sur_le_cours
+  examples: |
+    - Où puis-je lire les avis sur ce cours ?
+    - Que pensent les autres étudiants de ce cours ?
+
+- regex: Résumé
+  examples: |
+    - Peux-tu me donner un résumé de cette section du cours ?
+    - Je voudrais un résumé du contenu sur le HTML et CSS.
+    - Quels sont les points clés abordés dans le module sur l'accessibilité web ?
+
+- regex: "Prérequis|exigences|nécessaire"
+  examples: |
+    - Quels sont les connaissances nécessaires pour commencer?
+    - Dois-je avoir des prérequis avant de m'inscrire?
+

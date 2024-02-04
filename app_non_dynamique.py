@@ -28,15 +28,17 @@ def chat():
     return jsonify({'response': response})
 
 def get_gpt3_response(question):
-    # Vérifiez d'abord dans la base de données pour une réponse prédéfinie
     cursor = db_connection.cursor()
-    query = "SELECT answer FROM faq WHERE question LIKE %s"
-    cursor.execute(query, (question,))
+    # Utilisation de wildcards pour une recherche plus générale
+    query = "SELECT answer FROM faq WHERE question LIKE %s LIMIT 1"
+    like_pattern = f"%{question}%"
+    cursor.execute(query, (like_pattern,))
     db_response = cursor.fetchone()
     cursor.close()
 
     if db_response:
-        return db_response[0]  # Retourne la réponse prédéfinie
+        return db_response[0]
+
 
     # Si pas de réponse prédéfinie, utilisez GPT-3
     detected_intent = detect_intent(question)
@@ -49,6 +51,10 @@ def get_gpt3_response(question):
     )
     text_response = response.choices[0].text.strip()
     save_conversation(question, text_response)
+
+    if not text_response:
+        text_response = "Veuillez reformuler votre question."
+        
     return text_response
 
 
