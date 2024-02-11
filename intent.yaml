@@ -1,0 +1,69 @@
+- regex: "Contenu du cours|objectif|Compètences visées"
+  examples: |
+    - Que vais-je apprendre dans ce cours ?
+    - Quels sujets sont couverts par ce cours ?
+
+- regex: "Titre du cours|sujet|thème"
+  examples: |
+    - Quel est le titre complet de ce cours ?
+    - Comment s'appelle le cours sur lequel je veux des informations ?
+
+- regex: "Vidéo|tutoriel|leçons"
+  examples: |
+    - Combien de vidéos le cours contient-il ?
+    - Où puis-je trouver les vidéos de cours ?
+    - Où puis-je trouver les vidéos du cours?
+    - Les vidéos sont-elles accessibles à tout moment?
+
+- regex: "Durée|temps|long"
+  examples: |
+    - Combien de temps faut-il pour compléter le cours ?
+    - Quelle est la durée totale des vidéos du cours ?
+    - Combien de temps dure le cours?
+    - Quelle est la durée totale de la formation?
+
+- regex: Description_du_professeur
+  examples: |
+    - Qui enseigne ce cours ?
+    - Quelles sont les qualifications de l'instructeur ?
+    - Donner moi plus de détails sur les instructeurs ?
+
+- regex: Accès au cours
+  examples: |
+    - Comment puis-je accéder au cours ?
+    - Le cours est-il disponible en ligne gratuitement ?
+
+- regex: "certificat|attestation|diplôme"
+  examples: |
+    - Comment obtenir un certificat après avoir terminé le cours ?
+    - Le cours offre-t-il un certificat de réussite ?
+
+- regex: "Professeur|enseignant|formateur|profs"
+  examples: |
+    - Comment puis-je obtenir de l'aide si j'ai des questions pendant le cours ?
+    - Existe-t-il un support pour les étudiants ?
+    - Qui sont les profs ?
+    - Qui enseigne le cours?
+    - Puis-je connaître le profil des formateurs?
+
+- regex: Mise à jour du cours
+  examples: |
+    - Le contenu du cours est-il régulièrement mis à jour ?
+    - Comment puis-je savoir si le cours a été mis à jour récemment ?
+
+- regex: Avis_sur_le_cours
+  examples: |
+    - Où puis-je lire les avis sur ce cours ?
+    - Que pensent les autres étudiants de ce cours ?
+
+- regex: Résumé
+  examples: |
+    - Peux-tu me donner un résumé de cette section du cours ?
+    - Je voudrais un résumé du contenu sur le HTML et CSS.
+    - Quels sont les points clés abordés dans le module sur l'accessibilité web ?
+
+- regex: "Prérequis|exigences|nécessaire"
+  examples: |
+    - Quels sont les connaissances nécessaires pour commencer?
+    - Dois-je avoir des prérequis avant de m'inscrire?
+
