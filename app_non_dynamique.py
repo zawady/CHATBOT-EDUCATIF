@@ -1,11 +1,9 @@
 from flask import Flask, request, jsonify, render_template
-import openai
 import mysql.connector
 import yaml
 
 app = Flask(__name__, static_url_path='/static')
 
-openai.api_key = "To4JGGzfA3pHywZgnRvlT3BlbkFJItt7ppuXZBHWeSjuKimw"
 
 db_connection = mysql.connector.connect(
     host="localhost",
@@ -17,15 +15,18 @@ db_connection = mysql.connector.connect(
 with open('intent.yaml', 'r') as file:
     intent_data = yaml.safe_load(file)
 
+
 @app.route('/')
 def home():
-    return render_template('index2.html')
+    return render_template('chatbot.html')
+
 
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.form['user_message']
     response = get_gpt3_response(user_message)
     return jsonify({'response': response})
+
 
 def get_gpt3_response(question):
     cursor = db_connection.cursor()
@@ -38,7 +39,6 @@ def get_gpt3_response(question):
 
     if db_response:
         return db_response[0]
-
 
     # Si pas de réponse prédéfinie, utilisez GPT-3
     detected_intent = detect_intent(question)
@@ -54,7 +54,7 @@ def get_gpt3_response(question):
 
     if not text_response:
         text_response = "Veuillez reformuler votre question."
-        
+
     return text_response
 
 
@@ -64,12 +64,14 @@ def detect_intent(question):
             return intent
     return "default"
 
+
 def save_conversation(question, response):
     cursor = db_connection.cursor()
     sql_query = "INSERT INTO conversations (question, response) VALUES (%s, %s)"
     cursor.execute(sql_query, (question, response))
     db_connection.commit()
     cursor.close()
+
 
 if __name__ == '__main__':
     app.run(debug=True)

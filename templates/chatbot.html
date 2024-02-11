@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Learn IQ</title>
@@ -9,55 +10,63 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet">
   <style>
-  .left-msg .msg-img {
-    margin-right: 10px; /* Ajustez cette valeur selon vos besoins */
-  }
-  
-  /* Pour les messages alignés à droite (typiquement les messages de l'utilisateur) */
-  .right-msg .msg-img {
-    margin-left: 10px; /* Ajustez cette valeur selon vos besoins */
-  }
-  .msger-inputarea {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  
-  .input-icons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-right: 10px; /* Ajustez selon l'espacement désiré */
-  }
-  
-  .msger-input {
-    flex: 1; /* Permet à l'input de prendre l'espace restant */
-    margin: 0 10px; /* Ajustez les marges selon le besoin */
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    background-color: #f0f0f0;
-  }
-  
-  .icon {
-    margin-bottom: 5px; /* Espacement entre les icônes et l'input */
-  }
-  
-  .msger-send-btn {
-    border: none;
-    border-radius: 20px;
-    background-color: #0454a0;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 10px 15px;
-  }
-  
+    .left-msg .msg-img {
+      margin-right: 10px;
+      /* Ajustez cette valeur selon vos besoins */
+    }
+
+    /* Pour les messages alignés à droite (typiquement les messages de l'utilisateur) */
+    .right-msg .msg-img {
+      margin-left: 10px;
+      /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .msger-inputarea {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .input-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-right: 10px;
+      /* Ajustez selon l'espacement désiré */
+    }
+
+    .msger-input {
+      flex: 1;
+      /* Permet à l'input de prendre l'espace restant */
+      margin: 0 10px;
+      /* Ajustez les marges selon le besoin */
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      background-color: #f0f0f0;
+    }
+
+    .icon {
+      margin-bottom: 5px;
+      /* Espacement entre les icônes et l'input */
+    }
+
+    .msger-send-btn {
+      border: none;
+      border-radius: 20px;
+      background-color: #0454a0;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 15px;
+    }
+
     .card {
       border-radius: 30px !important;
       overflow: hidden;
     }
+
     .chat-header {
       position: relative;
       display: flex;
@@ -66,31 +75,38 @@
       background-color: #ffffff;
       border-bottom: 1px solid #cfd7df;
     }
+
     .fullscreen-btn {
       background-color: transparent;
       border: none;
       color: #000;
     }
+
     .fullscreen-btn:hover {
-      background-color: rgba(0,123,255,0.1);
+      background-color: rgba(0, 123, 255, 0.1);
       color: #0056b3;
     }
+
     .fullscreen-btn i {
       font-size: 1rem;
     }
+
     .msger-chat {
       overflow-y: auto;
       padding: 10px;
       height: 400px;
     }
+
     .msg {
       display: flex;
       align-items: flex-end;
       margin-bottom: 10px;
     }
+
     .msg:last-of-type {
       margin: 0;
     }
+
     .msg-img {
       width: 50px;
       height: 50px;
@@ -99,41 +115,50 @@
       background-size: cover;
       border-radius: 50%;
     }
+
     .msg-bubble {
       max-width: 450px;
       padding: 15px;
       border-radius: 15px;
       background-color: #f5f6f7;
     }
+
     .msg-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 5px;
     }
+
     .msg-info-name {
       margin-right: 10px;
       font-weight: bold;
     }
+
     .msg-info-time {
       font-size: 0.85em;
     }
+
     .left-msg .msg-bubble {
       border-bottom-left-radius: 0;
     }
+
     .right-msg {
       flex-direction: row-reverse;
     }
+
     .right-msg .msg-bubble {
       background-color: #e7f8ff;
       color: rgb(0, 0, 0);
       border-bottom-right-radius: 0;
     }
+
     .msger-inputarea {
       display: flex;
       padding: 10px;
       border-top: 1px solid #cfd7df;
     }
+
     .msger-inputarea input {
       flex: 1;
       padding: 10px;
@@ -141,6 +166,7 @@
       border-radius: 20px;
       background-color: #f0f0f0;
     }
+
     .msger-send-btn {
       margin-left: 10px;
       border: none;
@@ -153,10 +179,11 @@
     }
   </style>
 </head>
+
 <body style="background-color: #fafafa;">
   <section style="background-color: #fafafa;">
     <div class="container py-5">
-      <div class="card" id="chat3"style="height: 800px;" >
+      <div class="card" id="chat3" style="height: 800px;">
         <div class="row" style="height: 800px;">
           <div class="col-md-6 col-lg-5 col-xl-3 mb-4 mb-md-0" style="background-color: #eef0f0;">
             <!-- Left side content like user list can go here -->
@@ -165,7 +192,7 @@
             <div class="chat-header py-3 px-4 d-flex justify-content-between align-items-center">
               <h5 class="m-0"><strong>Thème de la formation : Codez un site web accessible avec HTML & CSS</strong></h5>
               <button onclick="" class="btn fullscreen-btn">
-                <i class="fas fa-expand"></i>
+                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
               </button>
             </div>
             <main class="msger-chat" style="height: 520px;">
@@ -173,13 +200,14 @@
             </main>
             <br>
             <form class="msger-inputarea">
-                <div class="input-icons">
-                  <div style="height:40px;"></div>
-                  <a class="icon text-muted" href="#!"><i class="fa-solid fa-microphone"></i></a>
-                  <a class="icon text-muted" href="#!"><i class="fas fa-paperclip"></i></a>
-                    <a class="icon text-muted" href="#!"><i class="fas fa-smile"></i></a>
-                </div>
-              <input type="text" style="height: 80px;" class="msger-input" id="textInput" placeholder="Entrer votre message...">
+              <div class="input-icons">
+                <div style="height:40px;"></div>
+                <a class="icon text-muted" href="#!"><i class="fa-solid fa-microphone"></i></a>
+                <a class="icon text-muted" href="#!"><i class="fas fa-paperclip"></i></a>
+                <a class="icon text-muted" href="#!"><i class="fas fa-smile"></i></a>
+              </div>
+              <input type="text" style="height: 80px;" class="msger-input" id="textInput"
+                placeholder="Entrer votre message...">
               <button type="submit" class="msger-send-btn">Envoyer</button>
             </form>
           </div>
@@ -191,7 +219,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const msgerForm = document.querySelector(".msger-inputarea");
       const msgerInput = document.querySelector(".msger-input");
       const msgerChat = document.querySelector(".msger-chat");
@@ -229,34 +257,40 @@
         msgerChat.insertAdjacentHTML("beforeend", msgHTML);
         msgerChat.scrollTop += 500;
       }
+      function displayInitialMessage() {
+        const initialMessage = "Hello, comment puis-je vous aider ? 😄";
+        appendMessage(BOT_NAME, BOT_IMG, "left", initialMessage);
+      }
+
+      // Appeler la fonction pour afficher le message initial au chargement de la page
+      window.addEventListener("load", displayInitialMessage);
 
       function botResponse(rawText) {
-      const typingMessage = "Learn IQ est en train d'écrire...";
-      appendMessage(BOT_NAME, BOT_IMG, "left", typingMessage);
+        const typingMessage = "Learn IQ est en train d'écrire...";
+        appendMessage(BOT_NAME, BOT_IMG, "left", typingMessage);
 
-      setTimeout(() => {
-        document.querySelectorAll('.msger-chat .msg').forEach(el => {
-          if (el.querySelector('.msg-text').textContent === typingMessage) {
-            el.remove();
-          }
-        });
+        setTimeout(() => {
+          document.querySelectorAll('.msger-chat .msg').forEach(el => {
+            if (el.querySelector('.msg-text').textContent === typingMessage) {
+              el.remove();
+            }
+          });
 
-         // Utiliser $.ajax à la place de $.post pour spécifier le contentType et envoyer les données en JSON
-    $.ajax({
-      type: "POST",
-      url: "/chat",
-      contentType: "application/json",
-      data: JSON.stringify({ user_message: rawText }), // Convertir l'objet en chaîne JSON
-      success: function(data) {
-        const msgText = data.response;
-        appendMessage(BOT_NAME,BOT_IMG, "left", msgText);
-      },
-      error: function(error) {
-        console.error("Erreur lors de l'envoi du message au bot:", error);
+          $.ajax({
+            type: "POST",
+            url: "/chat",
+            contentType: "application/json",
+            data: JSON.stringify({ user_message: rawText }),
+            success: function (data) {
+              const msgText = data.response;
+              appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+            },
+            error: function (error) {
+              console.error("Erreur lors de l'envoi du message au bot:", error);
+            }
+          });
+        }, 2000);
       }
-    });
-  }, 2000);  
-    }
       function formatDate(date) {
         const h = "0" + date.getHours();
         const m = "0" + date.getMinutes();
@@ -267,40 +301,38 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const fullscreenBtn = document.querySelector('.fullscreen-btn'); // Bouton pour basculer le mode plein écran
-    
-        fullscreenBtn.addEventListener('click', function() {
-            // Sélection de l'élément à basculer en plein écran (ajustez le sélecteur si nécessaire)
-            let elem = document.querySelector('.row');
-    
-            // Vérifie si nous sommes actuellement en mode plein écran
-            if (!document.fullscreenElement) {
-                // Entrer en mode plein écran
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.mozRequestFullScreen) { // Préfixe pour Firefox
-                    elem.mozRequestFullScreen();
-                } else if (elem.webkitRequestFullscreen) { // Préfixe pour Chrome, Safari et Opera
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { // Préfixe pour IE/Edge
-                    elem.msRequestFullscreen();
-                }
-            } else {
-                // Sortir du mode plein écran
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.mozCancelFullScreen) { // Préfixe pour Firefox
-                    document.mozCancelFullScreen();
-                } else if (document.webkitExitFullscreen) { // Préfixe pour Chrome, Safari et Opera
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { // Préfixe pour IE/Edge
-                    document.msExitFullscreen();
-                }
-            }
-        });
+    document.addEventListener('DOMContentLoaded', function () {
+      const fullscreenBtn = document.querySelector('.fullscreen-btn');
+      fullscreenBtn.addEventListener('click', function () {
+        let elem = document.querySelector('.row');
+
+        if (!document.fullscreenElement) {
+          //entrer en mode plein ecran
+          if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+          } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+          } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+          } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+          }
+        } else {
+          // Sortir du mode plein écran
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+          }
+        }
+      });
     });
 
   </script>
 </body>
+
 </html>
