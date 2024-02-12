@@ -1,0 +1,7 @@
+streamlit
+streamlit_chat
+faiss-cpu
+tiktoken
+langchain==0.0.316
+openai==0.28.1
+python3.11 -m streamlit run main.py
