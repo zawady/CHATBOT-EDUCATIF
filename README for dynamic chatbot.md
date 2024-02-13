@@ -1,47 +1,47 @@
 # CHATBOT-PROJECT
 =======
 # Chatbot avec Flask, GPT-3, MySQL, et HTML
+Ce projet implémente un chatbot éducatif d'une formation en HTML/CSS ( disponible sur OpenClassroom ), en utilisant Flask comme framework backend, intégré avec le modèle de langage GPT-2 pour le traitement du langage naturel et MySQL pour la gestion des données utilisateur. Le chatbot est conçu pour répondre à diverses requêtes basées sur des intentions prédéfinies, facilitant ainsi une interaction naturelle et informative.
 
-## Description du projet
-Ce projet est un chatbot éducatif d'une formation en HTML/CSS, basé sur Flask, qui utilise l'API GPT-3 pour générer des réponses en fonction des intentions détectées. Les données de conversation sont stockées dans une base de données MySQL. L'interface utilisateur est créée en HTML avec des fonctionnalités de chat en temps réel.
+## Description
 
-## Configuration
-API OpenAI
-Assurez-vous de remplacer la clé d'API OpenAI par votre propre clé dans le fichier principal app.py ou dans config.py selon vos préferences en matière de sécurité: 
+Le chatbot utilise un modèle GPT-2 pré-entraîné pour générer des réponses aux questions des utilisateurs. Les intentions des utilisateurs sont détectées à l'aide d'expressions régulières, permettant une personnalisation et une extension faciles. Le système gère l'authentification des utilisateurs et stocke l'historique des conversations dans une base de données MySQL. Ce projet est idéal pour ceux qui cherchent à développer des applications de chatbot personnalisées avec des capacités de traitement du langage naturel plus ou moins avancées.
 
-openai.api_key = "Votre_clé_API_OpenAI"
+## Prérequis
 
+Avant de commencer, assurez-vous que vous avez installé les éléments suivants sur votre système :
+- Python 3.8 ou supérieur
+- MySQL Server
+- Les bibliothèques Python nécessaires listées dans le fichier "requirements.txt"
 
-## Base de données MySQL
-Modifiez les détails de connexion à la base de données dans le fichier principal app.py : 
+## Installation
 
-db_connection = mysql.connector.connect(
-    host="localhost",
-    user="your_user",
-    password="your_password",
-    database="your_db"
-)
+Clonez le dépôt GitHub :
+git clone [Nom de ce depot distant]
 
-## Fichier YAML pour les intentions
-Le fichier intent.yaml contient des exemples pour détecter les intentions. Ajoutez des exemples pour d'autres entités selon vos besoins.
+## Configurez votre environnement Python (FACULTATIF) : 
 
-## Structure de la base de données
-Le script database_setup.py crée une base de données chatbot avec les tables profs, formation, cours, et videos.
+Il est recommandé d'utiliser un environnement virtuel pour isoler les dépendances du projet. Mais c'est facultatif.
+-python -m venv myenv ( pour creer l'environnement virtuel)
+-source venv/bin/activate ( pour l'activer )
+- deactivate ( pour le désactiver )
 
-## Insertion de données
-Le script insert_data.py insère des données depuis un fichier CSV dans la table cours. Modifiez le chemin du fichier CSV selon vos besoins.
+## Installez les dépendances :
 
-## Interface utilisateur HTML
-Le fichier templates/chatbot_dynamic.html contient l'interface utilisateur du chatbot.
+- pip install -r requirements.txt
 
-## Exécution du projet
-Installez les dépendances avec pip install Flask pandas mysql-connector-python.
-Exécutez python database_setup.py pour créer la base de données et les tables.
-Exécutez python insert_data.py pour insérer des données depuis un fichier CSV.
-Exécutez python app_dynamic.py pour démarrer le serveur Flask.
-Accédez à l'application dans votre navigateur à l'adresse http://127.0.0.1:5000/.
+## Configurez votre base de données MySQL :
 
-## Utilisation du chatbot
-Entrez vos messages dans la zone de texte.
-Appuyez sur "Envoyer".
-Le chatbot générera des réponses basées sur les intentions détectées et les exemples fournis.
+- Créez une base de données pour le projet.
+- Exécutez les scripts SQL fournis pour créer les tables nécessaires.
+
+## Configurez les variables d'environnement :
+
+-Renommez le fichier .env.example en .env et mettez à jour les valeurs pour correspondre à votre configuration de base de données et à d'autres paramètres secrets.
+
+## Lancez l'application :
+
+-python app.py
+
+## Utilisation
+Après avoir lancé l'application, naviguez vers http://localhost:5000 pour accéder à l'interface du chatbot. Vous pouvez vous inscrire comme nouvel utilisateur ou vous connecter avec un compte existant pour commencer à interagir avec le chatbot.
