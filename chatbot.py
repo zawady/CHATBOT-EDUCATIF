@@ -29,11 +29,8 @@ model = GPT2LMHeadModel.from_pretrained("gpt2")
 
 tokenizer.pad_token = tokenizer.eos_token
 
-# Lecture du fichier CSV et nettoyage des données
-# Assurez-vous que le chemin est correct
 data = pd.read_csv('scrapping_données.csv')
 data_clean = data.copy()
-# Remplace les NaN par des chaînes vides pour éviter les erreurs
 data_clean = data_clean.fillna('')
 
 # Chargement des intentions
@@ -41,6 +38,7 @@ with open('intent.yaml', 'r') as file:
     intents = yaml.safe_load(file)
 
 
+#autentification
 @app.route('/', methods=['GET', 'POST'])
 def auth():
     conn = mysql.connector.connect(**db_config)
@@ -55,7 +53,6 @@ def auth():
                 "SELECT * FROM utilisateurs WHERE nom = %s", (username,))
             user = cursor.fetchone()
             if user and check_password_hash(user['password'], password):
-                # Connexion réussie
                 session['nom'] = username
                 session['utilisateur_id'] = user['id']
                 return redirect(url_for('home'))
@@ -70,7 +67,6 @@ def auth():
             if cursor.fetchone():
                 flash("Le nom d'utilisateur existe déjà.", 'danger')
             else:
-                # Insérez le nouvel utilisateur
                 cursor.execute(
                     "INSERT INTO utilisateurs (nom,email, password) VALUES (%s, %s, %s)", (username, email, hashed_password))
                 conn.commit()
@@ -81,16 +77,14 @@ def auth():
     conn.close()
     return render_template('index.html')
 
-
+#template du chatbot
 @app.route('/chatbot')
 def home():
-    # Assurez-vous que ce fichier se trouve dans le dossier "templates"
     return render_template('chatbot.html')
 
-
+#methode post
 @app.route('/chat', methods=['POST'])
 def chat():
-    # Vérification que le corps de la requête contient 'user_message'
     user_message = request.json.get('user_message')
     if not user_message:
         return jsonify({'response': 'Le message utilisateur est manquant.'}), 400
@@ -103,18 +97,16 @@ def chat():
     except Exception as e:
         return jsonify({'response': f'Erreur lors du traitement de la requête: {str(e)}'}), 500
 
+
 # Fonction pour détecter l'intention
-
-
 def detect_intent(user_question):
     for intent in intents:
         if re.search(intent['regex'], user_question, re.IGNORECASE):
             return intent
     return None
 
+
 # Fonction pour générer une réponse basée sur l'intention et les données
-
-
 def generate_response_based_on_intent(intent, data, user_question):
     relevant_data = ""
     prompt = f""
@@ -125,7 +117,6 @@ def generate_response_based_on_intent(intent, data, user_question):
     elif "Titre du cours|sujet|thème" in intent['regex']:
         relevant_data = ' '.join(set(data['Titre du cours'].dropna().tolist()))
     elif "Durée|temps|long" in intent['regex']:
-        # Assumons que c'est un texte direct
         relevant_data = data['Durée du cours'].iloc[0]
     elif "Professeur|enseignant|formateur|profs" in intent['regex']:
         relevant_data = ' '.join(
@@ -135,21 +126,19 @@ def generate_response_based_on_intent(intent, data, user_question):
             data['Description du professeur'].dropna().tolist())
     elif "Contenu du cours|objectif|Compètences visées" in intent['regex']:
         relevant_data = ' '.join(data['Contenu'].dropna().tolist())
-    elif "Titre section|cours enseignés" in intent['regex']:
-       # Extraction du titre de la section de la question
+
+    elif "recherche_section|cours_enseignés" in intent['regex']:
         title_of_interest = extract_section_title(user_question)
-        # Recherche du contenu basé sur le titre extrait
         return search_content_by_title(title_of_interest)
+
     elif "Résumé" in intent['regex']:
         relevant_data = ' '.join(data[['Titre de la section', 'Contenu']].apply(
             lambda x: ': '.join(x), axis=1).dropna().tolist())
 
-    # Traitement spécifique pour l'intention "Vidéo|tutoriel|leçons"
+    #traitement specifique pour les vidéos
     if "Vidéo|tutoriel|leçons" in intent['regex']:
        urls = re.findall(r'https?://[^\s]+', relevant_data)
-       # Transformer chaque URL en un lien HTML
        links = [f'<a href="{url}">{url}</a>' for url in urls]
-       # Retourner les liens
        return links
 
     if not relevant_data:
@@ -171,16 +160,14 @@ def extract_section_title(question):
     for pattern in patterns:
         match = re.search(pattern, question, re.IGNORECASE)
         if match:
-            # Retourner le premier groupe capturé qui devrait représenter le titre de la section
             return match.group(1).strip()
-
-    # Si aucun motif n'est trouvé, retourner une chaîne vide ou un indicateur spécifique
-    return ""  # Vous pouvez choisir de retourner None ou une indication
+    return ""
 
 
 def search_content_by_title(title):
     relevant_data = data_clean[data_clean['Titre de la section'].str.contains(
         title, case=False, na=False)]
+
     if relevant_data.empty:
         return "Aucune information trouvée pour cette section."
     else:

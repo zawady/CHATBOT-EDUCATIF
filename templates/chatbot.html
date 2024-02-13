@@ -225,7 +225,7 @@
       const msgerChat = document.querySelector(".msger-chat");
 
       const BOT_IMG = "{{ url_for('static', filename='styles/chatbot.png') }}";
-      const PERSON_IMG = "{{ url_for('static', filename='styles/woman.png') }}";
+      const PERSON_IMG = "{{ url_for( 'static', filename='styles/woman.png') }}";
       const BOT_NAME = "LearnIQ";
       const PERSON_NAME = "Vous";
 
@@ -262,7 +262,7 @@
         appendMessage(BOT_NAME, BOT_IMG, "left", initialMessage);
       }
 
-      // Appeler la fonction pour afficher le message initial au chargement de la page
+      // Appel de la fonction pour afficher le message initial
       window.addEventListener("load", displayInitialMessage);
 
       function botResponse(rawText) {

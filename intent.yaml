@@ -67,3 +67,8 @@
     - Quels sont les connaissances nécessaires pour commencer?
     - Dois-je avoir des prérequis avant de m'inscrire?
 
+- regex: "recherche_section|cours_enseignés"
+  examples: |
+    - "(?i)(détails|informations) sur le cours|comment.*\?"
+
+
