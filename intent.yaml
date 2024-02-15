@@ -71,4 +71,12 @@
   examples: |
     - "(?i)(détails|informations) sur le cours|comment.*\?"
 
+- regex: "Bonjour|Hello|Salut|Hi|Bonsoir"
+  examples: |
+    - Bonjour
+    - Salut, comment ça va ?
+    - Hello !
+    - Hi, peux-tu m'aider ?
+
+
 

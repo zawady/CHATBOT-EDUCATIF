@@ -8,6 +8,7 @@ import re
 import yaml
 import os
 from dotenv import load_dotenv
+from datetime import datetime
 
 
 load_dotenv()
@@ -38,7 +39,7 @@ with open('intent.yaml', 'r') as file:
     intents = yaml.safe_load(file)
 
 
-#autentification
+# autentification
 @app.route('/', methods=['GET', 'POST'])
 def auth():
     conn = mysql.connector.connect(**db_config)
@@ -77,12 +78,15 @@ def auth():
     conn.close()
     return render_template('index.html')
 
-#template du chatbot
+# template du chatbot
+
+
 @app.route('/chatbot')
 def home():
-    return render_template('chatbot.html')
+    user_name = session.get('nom')
+    return render_template('chatbot.html', user_name=user_name)
 
-#methode post
+
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.json.get('user_message')
@@ -135,7 +139,18 @@ def generate_response_based_on_intent(intent, data, user_question):
         relevant_data = ' '.join(data[['Titre de la section', 'Contenu']].apply(
             lambda x: ': '.join(x), axis=1).dropna().tolist())
 
-    #traitement specifique pour les vidéos
+    elif "resumer" in intent['regex']:
+        i = 0
+        relevant_data = ' '
+        for user_question in data['Titre de la section']:
+            if "En résumé" in user_question:
+                relevant_data = relevant_data + ' ' + data['Contenu'][i]
+            i = i+1
+
+    elif "Bonjour|Hello|Salut|Hi" in intent['regex']:
+        return generate_dynamic_greeting()
+
+    # traitement specifique pour les vidéos
     if "Vidéo|tutoriel|leçons" in intent['regex']:
        urls = re.findall(r'https?://[^\s]+', relevant_data)
        links = [f'<a href="{url}">{url}</a>' for url in urls]
@@ -146,6 +161,17 @@ def generate_response_based_on_intent(intent, data, user_question):
     print(relevant_data)
     prompt += relevant_data
     return prompt
+
+
+def generate_dynamic_greeting():
+    current_hour = datetime.now().hour
+    if 5 <= current_hour < 12:
+        greeting = "Bonjour ! Comment puis-je vous aider aujourd'hui ?"
+    elif 12 <= current_hour < 18:
+        greeting = "Bon après-midi ! En quoi puis-je vous être utile ?"
+    else:
+        greeting = "Bonsoir ! Comment puis-je vous assister ?"
+    return greeting
 
 
 def extract_section_title(question):
